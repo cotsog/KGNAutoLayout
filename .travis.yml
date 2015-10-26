@@ -24,6 +24,7 @@ env:
     - DESTINATION="OS=9.1,name=iPhone 6s Plus"    
 
 before_install:
+- brew update
 - brew uninstall xctool
 - brew install xctool
 - brew switch xctool 0.2.7
