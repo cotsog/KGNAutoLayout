@@ -23,5 +23,10 @@ env:
     - DESTINATION="OS=9.1,name=iPhone 6s"
     - DESTINATION="OS=9.1,name=iPhone 6s Plus"    
 
+before_install:
+- brew uninstall xctool
+- brew install xctool
+- brew switch xctool 0.2.7
+
 script: 
-  - xcodebuild clean test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
+  - xctool clean test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
